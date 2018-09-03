@@ -10,7 +10,7 @@ class DemoApplication {
 
     @Bean
     fun init(repository: TopicRepository) = CommandLineRunner {
-        repository.save(Topic(title = "hello"))
+        repository.save(Topic(title = "hello", description = "sample topic description"))
         repository.findAll().forEach { Topic -> println(Topic) }
     }
 }

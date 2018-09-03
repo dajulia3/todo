@@ -2,10 +2,7 @@ package com.example.demo
 
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.ModelAttribute
-import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.*
 
 
 @Controller
@@ -25,8 +22,16 @@ class TopicController(val topicRepository: TopicRepository) {
 
     @GetMapping("/new-topic")
     fun newTopic(model: Model) : String {
+        model.addAttribute("title", "Create a new topic")
         model.addAttribute("topic", Topic())
         return "TopicForm.html"
     }
 
+    @GetMapping("/topics/{id}/edit")
+    fun editTopic(@PathVariable id: Int, model: Model) : String {
+        model.addAttribute("title", "Edit Topic")
+        val topic = topicRepository.findById(id)
+        model.addAttribute("topic", topic)
+        return "TopicForm.html"
+    }
 }

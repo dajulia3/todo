@@ -9,12 +9,14 @@
         <tr>
             <th>Topic</th>
             <th>Description</th>
+            <th>Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="topic : ${topics}">
             <td th:text="${topic.title}"></td>
             <td th:text="${topic.description}"></td>
+            <td></span><a th:href="@{|/topics/${topic.id}/edit|}" class="glyphicon glyphicon-pencil"></a></td>
         </tr>
         </tbody>
     </table>
