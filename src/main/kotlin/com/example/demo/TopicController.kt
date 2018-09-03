@@ -34,4 +34,10 @@ class TopicController(val topicRepository: TopicRepository) {
         model.addAttribute("topic", topic)
         return "TopicForm.html"
     }
+
+    @PostMapping(("/topics/{id}/delete"))
+    fun deleteTopic(@PathVariable id: Int ) : String {
+        topicRepository.deleteById(id)
+        return "redirect:/"
+    }
 }

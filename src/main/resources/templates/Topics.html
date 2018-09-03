@@ -16,7 +16,12 @@
         <tr th:each="topic : ${topics}">
             <td th:text="${topic.title}"></td>
             <td th:text="${topic.description}"></td>
-            <td></span><a th:href="@{|/topics/${topic.id}/edit|}" class="glyphicon glyphicon-pencil"></a></td>
+            <td>
+                <a th:href="@{|/topics/${topic.id}/edit|}" class="glyphicon glyphicon-pencil"></a>
+                <form style="display:inline" th:action="@{|/topics/${topic.id}/delete|}" method="post">
+                    <button type=submit class=".btn .btn-secondary"><span class="glyphicon glyphicon-trash"></span></button>
+                </form>
+            </td>
         </tr>
         </tbody>
     </table>
