@@ -17,5 +17,16 @@ class TopicController(val topicRepository: TopicRepository) {
         return "Topics.html"
     }
 
-    
+    @PostMapping("/topic")
+    fun saveTopic(@ModelAttribute topic: Topic) : String {
+        topicRepository.save(topic)
+        return "redirect:/"
+    }
+
+    @GetMapping("/new-topic")
+    fun newTopic(model: Model) : String {
+        model.addAttribute("topic", Topic())
+        return "TopicForm.html"
+    }
+
 }

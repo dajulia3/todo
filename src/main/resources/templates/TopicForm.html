@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="GeneralLayout.html :: headerfiles"></head>
+<body>
+<div class="container">
+    <h2>Create a new topic</h2>
+    <form th:action="@{/topic}" th:object="${topic}" method="post">
+        <p>Title: <input class="form-control" type="text" th:field="*{title}"/></p>
+        <p>Description: <textarea class="form-control" th:field="*{description}"/></p>
+        <p><input type="submit" class="btn btn-primary" value="Save"/></p>
+    </form>
+</div>
+</body>
+</html>

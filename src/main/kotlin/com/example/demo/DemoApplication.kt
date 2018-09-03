@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Bean
 class DemoApplication {
 
     @Bean
-    fun init(repository: TodoItemRepository) = CommandLineRunner {
-        repository.save(TodoItem(name = "hello"))
-        repository.findAll().forEach { todoItem -> println(todoItem) }
+    fun init(repository: TopicRepository) = CommandLineRunner {
+        repository.save(Topic(title = "hello"))
+        repository.findAll().forEach { Topic -> println(Topic) }
     }
 }
 
