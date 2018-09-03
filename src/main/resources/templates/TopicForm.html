@@ -8,6 +8,7 @@
         <p>Title: <input class="form-control" type="text" th:field="*{title}"/></p>
         <p>Description: <textarea class="form-control" th:field="*{description}"/></p>
         <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{votes}"/>
         <p><input type="submit" class="btn btn-primary" value="Save"/></p>
     </form>
 </div>

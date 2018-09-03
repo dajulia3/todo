@@ -40,4 +40,14 @@ class TopicController(val topicRepository: TopicRepository) {
         topicRepository.deleteById(id)
         return "redirect:/"
     }
+
+    @PostMapping(("/topics/{id}/votes"))
+    fun upvoteTopic(@PathVariable id: Int ) : String {
+        var topic = topicRepository.findById(id).get()
+        println("increment topic" + topic )
+        topic.votes = ++topic.votes
+        println(topic)
+        topicRepository.save(topic)
+        return "redirect:/"
+    }
 }
