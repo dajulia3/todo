@@ -8,11 +8,13 @@
         <thead>
         <tr>
             <th>Topic</th>
+            <th>Description</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="topic : ${topics}">
             <th th:text="${topic.title}"></th>
+            <th th:text="${topic.description}"></th>
         </tr>
         </tbody>
     </table>
