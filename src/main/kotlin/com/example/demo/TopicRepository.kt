@@ -2,4 +2,4 @@ package com.example.demo
 
 import org.springframework.data.repository.CrudRepository
 
-interface TodoItemRepository : CrudRepository<TodoItem, Int>
+interface TopicRepository : CrudRepository<Topic, Int>
