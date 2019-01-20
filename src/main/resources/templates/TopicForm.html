@@ -4,12 +4,12 @@
 <body>
 <div class="container">
     <h2 th:text="${title}">Page Title</h2>
-    <form th:action="@{/topic}" th:object="${topic}" method="post">
+    <form th:action="@{/topic}" th:object="${topic}" method="post" data-test="topic-form">
         <p>Title: <input class="form-control" type="text" th:field="*{title}"/></p>
         <p>Description: <textarea class="form-control" th:field="*{description}"/></p>
-        <input type="hidden" th:field="*{id}"/>
+        <input type="hidden" th:field="*{id}" />
         <input type="hidden" th:field="*{votes}"/>
-        <p><input type="submit" class="btn btn-primary" value="Save"/></p>
+        <p><input type="submit" class="btn btn-primary" value="Save" data-test="submit"/></p>
     </form>
 </div>
 </body>

@@ -3,7 +3,7 @@
 <head th:include="GeneralLayout.html :: headerfiles"></head>
 <body>
 <div class="container">
-    <h1>Topics</h1>
+    <h1 data-test="topics-heading">Topics</h1>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -14,17 +14,17 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="topic : ${topics}">
+        <tr th:each="topic : ${topics}" data-test="topic-item">
             <td th:text="${topic.title}"></td>
-            <td><span th:text="${topic.votes}"/>
+            <td><span th:text="${topic.votes}" data-test="topic-votes"/>
             <form style="display:inline" th:action="@{|/topics/${topic.id}/votes|}" method="post">
-                <button type=submit class=".btn .btn-secondary"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+                <button type=submit class=".btn .btn-secondary" data-test="topic-upvote"><span class="glyphicon glyphicon-thumbs-up"></span></button>
             </form>
             </td>
             <td th:text="${topic.description}"></td>
             <td>
-                <a th:href="@{|/topics/${topic.id}/edit|}" class="glyphicon glyphicon-pencil"></a>
-                <form style="display:inline" th:action="@{|/topics/${topic.id}/delete|}" method="post">
+                <a th:href="@{|/topics/${topic.id}/edit|}" class="glyphicon glyphicon-pencil" data-test="todo-edit"></a>
+                <form style="display:inline" th:action="@{|/topics/${topic.id}/delete|}" method="post" data-test="topic-delete">
                     <button type=submit class=".btn .btn-secondary"><span class="glyphicon glyphicon-trash"></span></button>
                 </form>
             </td>
@@ -32,7 +32,7 @@
         </tbody>
     </table>
     <p>
-    <a href="/new-topic">Create a new Topic</a>
+    <a href="/new-topic" data-test="new-topic-link">Create a new Topic</a>
     </p>
 </div>
 </body>
