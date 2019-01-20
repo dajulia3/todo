@@ -1,5 +1,6 @@
 package com.example.demo
 
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.*
@@ -39,6 +40,13 @@ class TopicController(val topicRepository: TopicRepository) {
     fun deleteTopic(@PathVariable id: Int ) : String {
         topicRepository.deleteById(id)
         return "redirect:/"
+    }
+
+    @ResponseBody
+    @DeleteMapping("/topics")
+    fun deleteAllTopics() :ResponseEntity<String> {
+        topicRepository.deleteAll()
+        return ResponseEntity.noContent().build()
     }
 
     @PostMapping(("/topics/{id}/votes"))

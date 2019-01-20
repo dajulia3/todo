@@ -1,6 +1,12 @@
 /// <reference types="Cypress" />
 describe("Managing Todos Journey Test", function () {
 
+    before(() =>{
+        cy.request({
+            method: "DELETE"
+        })
+    });
+
     it("create a todo", () => {
         cy.visit("/");
         cy.get("[data-test=topics-heading]");
